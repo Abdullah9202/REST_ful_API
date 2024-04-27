@@ -44,3 +44,7 @@ The API is hosted locally on the Flask development server with the following con
 * Error handling could be improved to provide more informative error messages.
 
 Overall, this RESTful API provides basic CRUD functionality for managing cafe records in a local SQL database.
+
+## Important Note
+
+* API Key is in the text file named api_key.txt that is located in API directory.
