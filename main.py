@@ -196,10 +196,10 @@ def replace_cafe(cafe_id):
                     target_cafe.img_url = request.args.get("img_url")
                     target_cafe.map_url = request.args.get("map_url")
                     target_cafe.coffee_price = request.args.get("coffee_price")
-                    target_cafe.has_wifi = request.args.get("has_wifi")
-                    target_cafe.has_toilet = request.args.get("has_toilet")
-                    target_cafe.has_sockets = request.args.get("has_sockets")
-                    target_cafe.can_take_calls = request.args.get("can_take_calls")
+                    target_cafe.has_wifi = bool(request.args.get("has_wifi"))
+                    target_cafe.has_toilet = bool(request.args.get("has_toilet"))
+                    target_cafe.has_sockets = bool(request.args.get("has_sockets"))
+                    target_cafe.can_take_calls = bool(request.args.get("can_take_calls"))
                 except KeyError:
                     return jsonify(error={"Bad Request": "One or all the keys are missing or invalid."}), 400
                 else:
