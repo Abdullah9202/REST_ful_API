@@ -166,9 +166,9 @@ def replace_cafe(cafe_id):
     # Request Validation
     if request.method == "PUT":
         # Counting in DB ids
-        total_ids = db.session.get(Cafe).count()
+        total_ids = db.session.query(Cafe).count()
         # Checking if the entered ID is in DB
-        if int(cafe_id) > total_ids or int(Cafe) < 1 or not db.session.query(db.exists().where(Cafe.id == cafe_id)).scalar():
+        if int(cafe_id) > total_ids or int(cafe_id) < 1 or not db.session.query(db.exists().where(Cafe.id == cafe_id)).scalar():
             return jsonify(error={"Not Found": f"Sorry! The Cafe with {cafe_id} ID was not found in database So, it cannot be replaced."}), 404
         
         # Getting the API Key from file
@@ -184,7 +184,7 @@ def replace_cafe(cafe_id):
         if api_key == request.args.get("api-key") or api_key == request.headers["api-key"]:
             # Updating the DB
             try:
-                target_cafe = db.session.get(Cafe).get(cafe_id)
+                target_cafe = db.session.query(Cafe).get(cafe_id)
             except NoResultFound:
                 return jsonify(error={"Not Found": f"Sorry! The cafe with ID {cafe_id} was not found in the database."}), 404
             else:
