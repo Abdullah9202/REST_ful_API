@@ -47,4 +47,4 @@ Overall, this RESTful API provides basic CRUD functionality for managing cafe re
 
 ## Important Note
 
-* API Key is in the text file named api_key.txt that is located in API directory.
+API Key is in the text file named api_key.txt that is located in API directory.
