@@ -2,6 +2,11 @@
 
 This is a RESTful API built using Python Flask and Flask-SQLAlchemy. It provides endpoints for performing CRUD (Create, Read, Update, Delete) operations on a local SQL database. The API supports HTTP methods such as GET, PUT, PATCH, and DELETE.
 
+## API Documentation
+
+Open this link to view the API Documentation.
+<https://documenter.getpostman.com/view/34517016/2sA3BuV8Uw>
+
 ## Features
 
 * GET: Retrieve data from the database.
