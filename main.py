@@ -182,7 +182,7 @@ def delete_cafe(cafe_id):
             api_file.close()
 
         # Validating the API Key entered by user
-        if api_key == request.args.get('api-key') or api_key == request.headers.get('X-API-KEY'):
+        if api_key == request.args.get("api-key") or api_key == request.headers["api-key"]:
             # Updating in DB
             try:
                 target_cafe = db.session.query(Cafe).get(cafe_id)
