@@ -5,7 +5,8 @@ This is a RESTful API built using Python Flask and Flask-SQLAlchemy. It provides
 ## Features
 
 * GET: Retrieve data from the database.
-* PUT: Create a new record in the database.
+* POST: Create a new record in the database.
+* PUT: Replace the record in the database.
 * PATCH: Update an existing record in the database.
 * DELETE: Remove a record from the database.
 
