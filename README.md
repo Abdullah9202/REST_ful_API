@@ -4,7 +4,7 @@ This is a RESTful API built using Python Flask and Flask-SQLAlchemy. It provides
 
 ## API Documentation
 
-Open this link to view the API Documentation.
+Open this link to view the API Documentation:
 <https://documenter.getpostman.com/view/34517016/2sA3BuV8Uw>
 
 ## Features
