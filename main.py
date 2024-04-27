@@ -81,14 +81,15 @@ def get_all_cafe():
 # Search Route
 @app.route("/search")
 def search_cafe():
-    cafe_location = request.args.get('loc')  # Get the value of the 'loc' query parameter
+    cafe_location = request.args.get('location')  # Get the value of the 'location' query parameter
     # Validation for 'loc' argument in URl
     if cafe_location is None:
         error_msg = {'error': 'Location parameter is missing'}
-        return jsonify(error_msg), 400  # Returning error msg if 'loc' argument was not found
+        return jsonify(error_msg), 400  # Returning error msg if 'location' argument was not found
 
     target_cafe = []  # List to hold the names of targeted cafes
     all_cafes = db.session.query(Cafe).all()  # Converting query objects to list
+    
     # Iterating on DB
     for cafe in all_cafes:
         # Matching the cafe location with the location provided by user
@@ -111,16 +112,16 @@ def add_cafe():
     if request.method == "POST":
         try:
             new_cafe = Cafe(
-                name=request.form["name"],
-                location=request.form["location"],
-                seats=request.form["seats"],
-                img_url=request.form["img_url"],
-                map_url=request.form["map_url"],
-                coffee_price=request.form["coffee_price"],
-                has_wifi=bool(request.form["has_wifi"]),
-                has_toilet=bool(request.form["has_toilet"]),
-                has_sockets=bool(request.form["has_sockets"]),
-                can_take_calls=bool(request.form["can_take_calls"]),
+                name=request.args.get('name'),
+                location=request.args.get('location'),
+                seats=request.args.get('seats'),
+                img_url=request.args.get('img_url'),
+                map_url=request.args.get('map_url'),
+                coffee_price=request.args.get('coffee_price'),
+                has_wifi=bool(request.args.get('has_wifi')),
+                has_toilet=bool(request.args.get('has_toilet')),
+                has_sockets=bool(request.args.get('has_sockets')),
+                can_take_calls=bool(request.args.get('can_take_calls')),
             )
         except KeyError:
             return jsonify(error={"Bad Request": "One or all the keys are missing or invalid."}), 400
